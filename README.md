@@ -51,8 +51,7 @@ The exam encourages autonomy and resilience, challenging students to analyze and
 | ft_strlen     | ft_swap         | hello          | maff_alpha   |
 | maff_revalpha | max             | only_a         | only_z       |
 | repeat_alpha  | rev_print       | rot_13         | rotone       |
-| search_and_replace | ulstr       |
-
+| search_and_replace | ulstr       | ft_strcpy     | 
 
 |   Level 2     |                 |               |               |
 |---------------|-----------------|---------------|---------------|
