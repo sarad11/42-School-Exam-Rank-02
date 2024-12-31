@@ -7,7 +7,7 @@ void    ft_putstr(char *str)
     i = 0;
     while (str[i])
     {
-        write(i, &str[i], 1);
+        write(1, &str[i], 1);
         i++;
     }
 }
