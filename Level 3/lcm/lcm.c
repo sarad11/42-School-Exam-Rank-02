@@ -37,7 +37,7 @@ unsigned int ft_lcm(unsigned int a, unsigned int b)
     unsigned int    gcd;
     int     result;
     
-    if (a == 0 || b == 0)  
+    if (a == 0 || b == 0 || a >= 2147483648 || b >= 2147483648)  
         return (0);
     gcd = ft_gcd(a, b);
     result = (a * b) / gcd;
