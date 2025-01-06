@@ -3,12 +3,12 @@
 int     ft_atoi(char *str)
 {
     int     i;
-    int     numb;
+    int     num;
     int     sign;
 
     i = 0;
     sign = 1;
-    numb = 0;
+    num = 0;
     while ((str[i]) && (str[i] == '\n' || str[i] == '\t' || str[i] == '\r' || str[i] == '\v' || str[i] == ' ' || str[i] == '\f'))
         i++;
     if (str[i] == '+' || str[i] == '-')
@@ -19,10 +19,10 @@ int     ft_atoi(char *str)
     }
     while (str[i])
     {
-        numb = (numb * 10) + str[i] - '0';
+        num = (num * 10) + str[i] - '0';
         i++;
     }
-    return (numb * sign);
+    return (num * sign);
 }
 
 void    ft_invert_putstr(char *hex, int i)
@@ -44,9 +44,9 @@ void    ft_convert_to_hex(int numb)
 
     mod = 0;
     i = 0;
-    while (numb > 0)
+    while (num > 0)
     {
-        mod = numb % 16;
+        mod = num % 16;
         if (mod < 10)
             hex[i] = (mod + '0');
         else if (mod == 10)
@@ -61,7 +61,7 @@ void    ft_convert_to_hex(int numb)
             hex[i] = 'e';
         else if (mod == 15)
             hex[i] = 'f';
-        numb = numb / 16;
+        num = num / 16;
         i++;
     }
     hex[i] = '\0';
@@ -73,13 +73,13 @@ int     main(int argc, char **argv)
 {
     if (argc == 2)
     {
-        int     numb;
+        int     num;
 
-        numb = ft_atoi(argv[1]);
-        if (numb == 0)
+        num = ft_atoi(argv[1]);
+        if (num == 0)
             write(1, "0", 1);
         else
-            ft_convert_to_hex(numb);
+            ft_convert_to_hex(num);
     }
     write(1, "\n", 1);
     return (0);

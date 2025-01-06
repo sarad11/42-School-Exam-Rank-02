@@ -8,11 +8,12 @@ the end, followed by a newline. A word is a section of string delimited either b
 parameters is not 1, or if there are no words, simply display a newline.
 Examples:
 $> ./expand_str "vous voyez c'est facile d'afficher la meme chose" | cat -e
-vous voyez c'est facile d'afficher la meme chose$
+vous   voyez   c'est   facile   d'afficher   la   meme   chose$
 $> ./expand_str " seulement la c'est plus dur " | cat -e
-seulement la c'est plus dur$
+seulement   la   c'est   plus   dur$
 $> ./expand_str "comme c'est cocasse" "vous avez entendu, Mathilde ?" | cat -e
 $
 $> ./expand_str "" | cat -e
+$
 --------------------------------------------------------------------------------
 ```

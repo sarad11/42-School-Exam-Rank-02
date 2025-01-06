@@ -1,32 +1,26 @@
 #include <unistd.h>
 
-int     main(int argc, char **argv)
+int     main(int argc, char ** argv)
 {
     int     i;
-    int     word_started;
+    int     is_space;
 
     i = 0;
-    word_started = 0;
-    if (argc == 2 && argv[1][0])
+    is_space = 0;
+    if (argc == 2 && argv[1])
     {
         while (argv[1][i])
         {
-            while (argv[1][i] == ' ' || argv[1][i] == '\t')
+            while (argv[1][i] && ((argv[1][i] == ' ') || (argv[1][i] == '\t')))
                 i++;
-            if (argv[1][i] != ' ' && argv[1][i] != '\t')
+            if (argv[1][i] && is_space)
+                write(1, "   ", 3);
+            while (argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
             {
-                if (argv[1][i])
-                {
-                    if (word_started)
-                            write(1, "   ", 3);
-                    word_started = 1;
-                    while (argv[1][i] && argv[1][i] != ' ' && argv[1][i] != '\t')
-                    {
-                        write(1, &argv[1][i], 1);
-                        i++;
-                    }
-                }
+                write(1, &argv[1][i], 1);
+                i++;
             }
+            is_space = 1;
         }
     }
     write(1, "\n", 1);

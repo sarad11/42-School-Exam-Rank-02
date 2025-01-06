@@ -1,7 +1,7 @@
 ## Subject
 ```
 Expected Files: ft_range.c
-Allowed functions: malloc ###marca###
+Allowed functions: malloc 
 --------------------------------------------------------------------------------
 Write the following function:
 int *ft_range(int start, int end);

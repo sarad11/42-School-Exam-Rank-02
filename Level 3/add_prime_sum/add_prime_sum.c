@@ -2,11 +2,11 @@
 
 int     ft_atoi(char *str)
 {
-    int     numb;
+    int     num;
     int     i;
     int     sign;
 
-    numb = 0;
+    num = 0;
     i = 0;
     sign = 1;
     while (str[i] == ' ' || str[i] == '\n' || str[i] == '\r' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f')
@@ -19,22 +19,22 @@ int     ft_atoi(char *str)
     }
     while (str[i] >= '0' && str[i] <= '9')
     {
-        numb = (numb * 10) + str[i] - '0';
+        num = (num * 10) + str[i] - '0';
         i++;
     }
-    return (numb * sign);
+    return (num * sign);
 }
 
-int     ft_is_prime(int numb)
+int     ft_is_prime(int num)
 {
     int     i;
 
     i = 2;
-    if (numb == 1)
+    if (num == 1)
         return (0);
-    while (i * i <= numb)
+    while (i * i <= num)
     {
-        if (numb % i == 0)
+        if (num % i == 0)
             return (0);
         i++;
     }
@@ -45,39 +45,38 @@ void    ft_print_sum(int numb)
 {
     char    digit;
 
-    if (numb == 0)
+    if (num == 0)
         write(1, "0", 1);
     else
     {
-        if (numb >= 10)
-            ft_print_sum(numb / 10);
-        digit = (numb % 10) + '0';
+        if (num >= 10)
+            ft_print_sum(num / 10);
+        digit = (num % 10) + '0';
         write(1, &digit, 1);
     }
 }
 
 int     main(int argc, char **argv)
 {
-    int     numb;
+    int     num;
     int     sum;
 
-    numb = 0;
+    num = 0;
     sum = 0;
     if (argv[1])
-        numb = ft_atoi(argv[1]);
-    if (argc == 2 && numb && numb > 0)
+        num = ft_atoi(argv[1]);
+    if (argc == 2 && num && num > 0)
     {
-        while (numb > 0)
+        while (num > 0)
         {
-            if (ft_is_prime(numb) == 1)
-                sum += numb;
-            numb--;
+            if (ft_is_prime(num) == 1)
+                sum += num;
+            num--;
         }
         ft_print_sum(sum);
         write(1, "\n", 1);
         return (0);
     }
-    write(1, "0", 1);
-    write(1, "\n", 1);
+    write(1, "0\n", 1);
     return (0);
 }
